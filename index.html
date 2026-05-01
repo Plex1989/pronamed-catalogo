@@ -114,18 +114,17 @@
                         <button onClick={() => handleWhatsApp("Catálogo")} className="bg-pnm-gold text-white px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest hover:bg-pnm-main transition-all shadow-md active:scale-95">WhatsApp</button>
                     </nav>
 
-                    {/* HERO - MARCA DE AGUA */}
+                    {/* HERO - MARCA DE AGUA (MÁS VISIBLE: OPACITY-15) */}
                     <header className="relative py-24 px-6 text-center border-b border-slate-200 bg-white overflow-hidden">
                         
-                        {/* Marca de Agua (Se quitó el ./ para forzar carga) */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                            <img src="logo.png" alt="" className="w-[120%] md:w-[60%] max-w-2xl h-auto object-contain opacity-[0.03]" 
+                            <img src="logo.png" alt="Marca de Agua" className="w-[120%] md:w-[60%] max-w-2xl h-auto object-contain opacity-15" 
                                 onError={(e) => { e.currentTarget.style.display='none'; }} 
                             />
                         </div>
 
                         <div className="max-w-4xl mx-auto relative z-10">
-                            <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 px-4 py-1.5 rounded-full mb-6">
+                            <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 px-4 py-1.5 rounded-full mb-6 shadow-sm">
                                 <Icon name="shield-check" size={14} className="text-pnm-main" />
                                 <span className="text-pnm-main text-[9px] font-black uppercase tracking-widest">Calidad de Laboratorio</span>
                             </div>
@@ -137,8 +136,8 @@
                     </header>
 
                     {/* CATEGORÍAS */}
-                    <section className="pt-8 pb-24 relative">
-                        <div className="max-w-7xl mx-auto relative z-10">
+                    <section className="pt-8 pb-24 relative z-10 bg-[#F8FAFC]">
+                        <div className="max-w-7xl mx-auto">
                             <div className="flex overflow-x-auto gap-3 px-6 py-6 no-scrollbar snap-x justify-start md:justify-center mb-10">
                                 {['todos', 'piel', 'mujer', 'digestion', 'nutricion', 'emocional', 'circulacion', 'hombre', 'rinon'].map(tab => (
                                     <button key={tab} onClick={() => setActiveTab(tab)}
@@ -190,7 +189,6 @@
                                     {/* ZONA DE IMÁGENES LOCALES */}
                                     <div className="w-full max-w-4xl mx-auto px-6 mb-12 flex flex-col sm:flex-row gap-6">
                                         
-                                        {/* 1. PLANTA LOCAL */}
                                         <div className="w-full sm:w-1/2 h-64 sm:h-80 rounded-[3rem] overflow-hidden bg-slate-100 relative group border border-slate-200 shadow-sm">
                                             <img src={"./" + selectedProduct.planta} className="absolute inset-0 w-full h-full object-cover z-10 group-hover:scale-105 transition-transform duration-700 opacity-100" alt="Origen Botánico" 
                                                 onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.parentNode.innerHTML='<div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 border border-dashed border-slate-300 m-4 rounded-[2.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg><span class="text-[11px] font-bold text-center">Falta imagen botánica:<br/><span class="text-pnm-main mt-1 block">'+selectedProduct.planta+'</span></span></div>'; }} 
@@ -200,7 +198,6 @@
                                             </div>
                                         </div>
 
-                                        {/* 2. FRASCO LOCAL */}
                                         <div className="w-full sm:w-1/2 h-64 sm:h-80 rounded-[3rem] overflow-hidden border border-slate-200 shadow-sm relative group bg-slate-50">
                                             <img src={"./" + selectedProduct.f} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 relative z-10" 
                                                 onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.parentNode.innerHTML='<div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 border border-dashed border-slate-300 m-4 rounded-[2.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="m3 15 2 2 4-4"/></svg><span class="text-[11px] font-bold text-center">Falta foto del producto:<br/><span class="text-pnm-main mt-1 block">'+selectedProduct.f+'</span></span></div>'}} 
