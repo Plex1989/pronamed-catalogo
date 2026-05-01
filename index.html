@@ -114,11 +114,12 @@
                         <button onClick={() => handleWhatsApp("Catálogo")} className="bg-pnm-gold text-white px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest hover:bg-pnm-main transition-all shadow-md active:scale-95">WhatsApp</button>
                     </nav>
 
-                    {/* HERO - MARCA DE AGUA (MÁS VISIBLE: OPACITY-15) */}
+                    {/* HERO - MARCA DE AGUA (AJUSTADA PARA QUE SE VEA COMPLETA) */}
                     <header className="relative py-24 px-6 text-center border-b border-slate-200 bg-white overflow-hidden">
                         
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                            <img src="logo.png" alt="Marca de Agua" className="w-[120%] md:w-[60%] max-w-2xl h-auto object-contain opacity-15" 
+                        {/* Se agregó py-4 al contenedor y h-full con object-contain para que nunca se recorte */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 py-6">
+                            <img src="logo.png" alt="Marca de Agua" className="w-[85%] md:w-[45%] h-full max-w-lg object-contain opacity-30" 
                                 onError={(e) => { e.currentTarget.style.display='none'; }} 
                             />
                         </div>
