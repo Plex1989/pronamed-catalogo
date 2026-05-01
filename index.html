@@ -102,7 +102,7 @@
             return (
                 <div className="min-h-screen flex flex-col relative selection:bg-pnm-main selection:text-white">
                     
-                    {/* NAVEGACIÓN - REGRESA EL LOGO "PNM" EN CÓDIGO */}
+                    {/* NAVEGACIÓN */}
                     <nav className="bg-white/90 backdrop-blur-xl sticky top-0 z-[60] border-b border-slate-200 px-6 h-16 md:h-20 flex items-center justify-between shadow-sm">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 bg-pnm-main rounded-xl flex items-center justify-center text-white font-black shadow-lg">PNM</div>
@@ -114,12 +114,12 @@
                         <button onClick={() => handleWhatsApp("Catálogo")} className="bg-pnm-gold text-white px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest hover:bg-pnm-main transition-all shadow-md active:scale-95">WhatsApp</button>
                     </nav>
 
-                    {/* HERO - AQUÍ ESTÁ TU LOGO REAL COMO MARCA DE AGUA */}
+                    {/* HERO - MARCA DE AGUA */}
                     <header className="relative py-24 px-6 text-center border-b border-slate-200 bg-white overflow-hidden">
                         
-                        {/* Marca de Agua (opacity baja para que sea sutil) */}
+                        {/* Marca de Agua (Se quitó el ./ para forzar carga) */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                            <img src="./logo.png" alt="" className="w-[120%] md:w-[60%] max-w-2xl h-auto object-contain opacity-[0.03]" 
+                            <img src="logo.png" alt="" className="w-[120%] md:w-[60%] max-w-2xl h-auto object-contain opacity-[0.03]" 
                                 onError={(e) => { e.currentTarget.style.display='none'; }} 
                             />
                         </div>
@@ -273,7 +273,7 @@
                         </div>
                     )}
 
-                    {/* FOOTER - REGRESA EL LOGO "PNM" EN CÓDIGO */}
+                    {/* FOOTER */}
                     <footer className="bg-white py-20 px-6 text-center border-t border-slate-200">
                         <div className="w-14 h-14 bg-pnm-main text-white rounded-2xl flex items-center justify-center font-black text-2xl mx-auto mb-6 shadow-lg shadow-green-900/10">PNM</div>
                         <h2 className="text-3xl font-black text-pnm-main uppercase italic mb-2 tracking-tighter">PRONAMED</h2>
