@@ -74,7 +74,6 @@
                 window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
             };
 
-            // INVENTARIO - Carga de imágenes 100% locales (f = frasco, planta = imagen botánica)
             const products = [
                 { 
                     n: "Nervilex", f: "nervilex.png", planta: "nervilex-planta.jpg", c: "emocional", tag: "Relajante", 
@@ -283,14 +282,12 @@
             return (
                 <div className="min-h-screen flex flex-col relative selection:bg-pnm-main selection:text-white">
                     
-                    {/* NAVEGACIÓN */}
+                    {/* NAVEGACIÓN - LOGO APLICADO AQUÍ */}
                     <nav className="bg-white/90 backdrop-blur-xl sticky top-0 z-[60] border-b border-slate-200 px-6 h-16 md:h-20 flex items-center justify-between shadow-sm">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-pnm-main rounded-xl flex items-center justify-center text-white font-black shadow-lg">PNM</div>
-                            <div className="flex flex-col text-left leading-none">
-                                <span className="text-lg font-black text-pnm-main uppercase italic tracking-tighter">PRONAMED</span>
-                                <span className="text-[7px] font-bold text-slate-500 uppercase tracking-[0.3em] mt-1">Salud para tu Familia</span>
-                            </div>
+                            <img src="logo.png" alt="Logo Pronamed" className="h-10 md:h-12 w-auto object-contain drop-shadow-sm" 
+                                onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="w-10 h-10 bg-pnm-main rounded-xl flex items-center justify-center text-white font-black shadow-lg">PNM</div><div class="flex flex-col text-left leading-none"><span class="text-lg font-black text-pnm-main uppercase italic tracking-tighter">PRONAMED</span><span class="text-[7px] font-bold text-slate-500 uppercase tracking-[0.3em] mt-1">Salud Familiar</span></div>'}} 
+                            />
                         </div>
                         <button onClick={() => handleWhatsApp("Catálogo")} className="bg-pnm-gold text-white px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest hover:bg-pnm-main transition-all shadow-md active:scale-95">WhatsApp</button>
                     </nav>
@@ -305,7 +302,7 @@
                             <h1 className="text-5xl md:text-8xl font-black text-pnm-main leading-none tracking-tighter uppercase italic mb-6">
                                 CIENCIA QUE <span className="text-pnm-gold not-italic">SANA</span>
                             </h1>
-                            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.4em] max-w-xl mx-auto italic">Herbolaria Clínica desde 1990</p>
+                            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.4em] max-w-xl mx-auto italic border-t border-slate-100 pt-4">Herbolaria Clínica desde 1990</p>
                         </div>
                     </header>
 
@@ -328,7 +325,7 @@
                                     <div key={i} className="group bg-white rounded-[3rem] p-8 flex flex-col items-center cursor-pointer product-card border border-slate-100 shadow-sm" onClick={() => setSelectedProduct(p)}>
                                         <div className="bg-slate-50 text-slate-500 px-4 py-1.5 rounded-full text-[8px] font-black uppercase mb-6 tracking-widest leading-none border border-slate-200 group-hover:bg-pnm-gold group-hover:text-white group-hover:border-pnm-gold transition-colors">{p.tag}</div>
                                         
-                                        {/* FRASCO LOCAL - Diseño con atmósfera/cover */}
+                                        {/* FRASCO LOCAL */}
                                         <div className="h-56 w-full mb-8 relative rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm group-hover:shadow-md transition-all duration-500 bg-slate-50">
                                             <img src={p.f} alt={p.n} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                                                 onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 border border-dashed border-slate-300 m-2 rounded-[1.5rem]"><span class="text-[10px] font-bold text-center">Falta imagen:<br/><span class="text-pnm-main mt-1 block">' + p.f + '</span></span></div>'}} />
@@ -343,7 +340,7 @@
                         </div>
                     </section>
 
-                    {/* MODAL FICHA TÉCNICA - CARGA DE IMÁGENES 100% LOCALES */}
+                    {/* MODAL FICHA TÉCNICA - CARGA DE IMÁGENES LOCALES */}
                     {selectedProduct && (
                         <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6 bg-slate-900/60 backdrop-blur-md">
                             <div className="bg-white w-full max-w-5xl rounded-t-[3rem] sm:rounded-[4rem] shadow-[0_30px_100px_rgba(0,0,0,0.2)] relative overflow-hidden max-h-[96vh] flex flex-col modal-panel">
@@ -363,10 +360,10 @@
                                         <h2 className="text-5xl md:text-7xl font-black text-pnm-main uppercase italic tracking-tighter">{selectedProduct.n}</h2>
                                     </div>
 
-                                    {/* ZONA DE IMÁGENES LOCALES */}
+                                    {/* ZONA DE IMÁGENES LOCALES (Planta y Frasco) */}
                                     <div className="w-full max-w-4xl mx-auto px-6 mb-12 flex flex-col sm:flex-row gap-6">
                                         
-                                        {/* 1. Recuadro PLANTA BOTÁNICA (Local) */}
+                                        {/* 1. Recuadro PLANTA LOCAL */}
                                         <div className="w-full sm:w-1/2 h-64 sm:h-80 rounded-[3rem] overflow-hidden bg-slate-100 relative group border border-slate-200 shadow-sm">
                                             <img src={selectedProduct.planta} className="absolute inset-0 w-full h-full object-cover z-10 group-hover:scale-105 transition-transform duration-700 opacity-100" alt="Origen Botánico" 
                                                 onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 border border-dashed border-slate-300 m-4 rounded-[2.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg><span class="text-[11px] font-bold text-center">Falta imagen botánica:<br/><span class="text-pnm-main mt-1 block">'+selectedProduct.planta+'</span></span></div>'; }} 
@@ -376,7 +373,7 @@
                                             </div>
                                         </div>
 
-                                        {/* 2. Recuadro FRASCO (Local) */}
+                                        {/* 2. Recuadro FRASCO LOCAL */}
                                         <div className="w-full sm:w-1/2 h-64 sm:h-80 rounded-[3rem] overflow-hidden border border-slate-200 shadow-sm relative group bg-slate-50">
                                             <img src={selectedProduct.f} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 relative z-10" 
                                                 onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 border border-dashed border-slate-300 m-4 rounded-[2.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="m3 15 2 2 4-4"/></svg><span class="text-[11px] font-bold text-center">Falta foto del producto:<br/><span class="text-pnm-main mt-1 block">'+selectedProduct.f+'</span></span></div>'}} 
@@ -387,7 +384,7 @@
                                         </div>
                                     </div>
 
-                                    {/* CONTENIDO EXTENSO */}
+                                    {/* CONTENIDO EXTENSO DE LA FICHA TÉCNICA */}
                                     <div className="w-full max-w-4xl mx-auto px-6 space-y-10">
                                         
                                         <div className="bg-slate-50 p-8 md:p-10 rounded-[3rem] border border-slate-100">
@@ -450,10 +447,11 @@
                         </div>
                     )}
 
-                    {/* FOOTER */}
+                    {/* FOOTER - LOGO APLICADO AQUÍ TAMBIÉN */}
                     <footer className="bg-white py-20 px-6 text-center border-t border-slate-200">
-                        <div className="w-14 h-14 bg-pnm-main text-white rounded-2xl flex items-center justify-center font-black text-2xl mx-auto mb-6 shadow-lg shadow-green-900/10">PNM</div>
-                        <h2 className="text-3xl font-black text-pnm-main uppercase italic mb-2 tracking-tighter">PRONAMED</h2>
+                        <img src="logo.png" alt="Logo Pronamed" className="h-16 w-auto mx-auto mb-6 object-contain drop-shadow-sm" 
+                            onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="w-14 h-14 bg-pnm-main text-white rounded-2xl flex items-center justify-center font-black text-2xl mx-auto mb-6 shadow-lg shadow-green-900/10">PNM</div><h2 class="text-3xl font-black text-pnm-main uppercase italic mb-2 tracking-tighter">PRONAMED</h2>'}} 
+                        />
                         <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em] mb-12">Laboratorio Herbolario Profesional</p>
                         <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest pt-12 border-t border-slate-100 max-w-sm mx-auto leading-relaxed">Melchor Ocampo No 60, Xalapa, Ver. | 228 120 6974</p>
                     </footer>
